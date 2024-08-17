@@ -81,15 +81,17 @@ class Effect {
 
 		window.addEventListener("touchmove",
 			(e) => {
+				e.preventDefault()
+				
 				this.mouseOrTouch.x = e.touches[0].clientX
 				this.mouseOrTouch.y = e.touches[0].clientY
-			})
+			}, { passive: false })
 
 		window.addEventListener("mousemove",
 			(e) => {
 				this.mouseOrTouch.x = e.x
 				this.mouseOrTouch.y = e.y
-			})
+			}, { passive: false })
 
 		window.addEventListener("touchend",
 			(e) => {
