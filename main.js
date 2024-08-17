@@ -1,5 +1,7 @@
 const canvas = document.querySelector("canvas")
-const ctx = canvas.getContext('2d')
+const ctx = canvas.getContext('2d', {
+	willReadFrequently: true
+})
 canvas.width = window.innerWidth
 canvas.height = window.innerHeight
 
@@ -213,6 +215,7 @@ window.addEventListener("resize", () => {
 const effect = new Effect(ctx)
 
 document.fonts.ready.then(() => {
+	ctx.clearRect(0, 0, canvas.width, canvas.height)
 	effect.wrapText("SubzeroSAD99")
 })
 
